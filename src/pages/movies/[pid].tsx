@@ -52,7 +52,13 @@ const Post: NextPage<PostProps> = ({ post }) => {
 
 export default Post
 
-export async function getServerSideProps({ query }) {
+type ServerSidePropsType ={
+  query: {
+    pid: string
+  }
+}
+
+export async function getServerSideProps({ query }:ServerSidePropsType) {
   //console.log(query)
   const post = query.pid
 
