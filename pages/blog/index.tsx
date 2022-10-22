@@ -1,27 +1,27 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-type HomeProps = {
-  response: string
+type BlogProps = {
+  posts: string[]
 }
 
-const Home: NextPage<HomeProps> = ({ response }) => {
+const Blog: NextPage<BlogProps> = ({ posts }) => {
 
   return (
     <div className=''>
       <Head>
-        <title>RootLab | NextJS Products (Typescript)</title>
+        <title>Blog - RootLab | NextJS Products (Typescript)</title>
         <meta name="description" content="RootLab first session" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className=''>
         <h1 className=''>
-          Welcome to the Rootlab | Rootstack
+          Welcome to the Rootlab | Rootstack - Blog
         </h1>
 
         <p className=''>
-          <code className=''>Typescript {response}</code>
+          <code className=''>Typescript </code>
         </p>
       </main>
 
@@ -41,14 +41,14 @@ const Home: NextPage<HomeProps> = ({ response }) => {
   )
 }
 
-export default Home
+export default Blog
 
 export async function getServerSideProps() {
-  const response = 'Message'
+  const posts = 'Posts'
 
   return {
     props: {
-      response
+      posts
     }
   }
 }

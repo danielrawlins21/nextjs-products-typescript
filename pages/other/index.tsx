@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-type HomeProps = {
-  response: string
+type OtherProps = {
+  message: string
 }
 
-const Home: NextPage<HomeProps> = ({ response }) => {
+const Other: NextPage<OtherProps> = ({ message }) => {
 
   return (
     <div className=''>
@@ -17,11 +17,11 @@ const Home: NextPage<HomeProps> = ({ response }) => {
 
       <main className=''>
         <h1 className=''>
-          Welcome to the Rootlab | Rootstack
+          Welcome to the Rootlab | Rootstack - Other
         </h1>
 
         <p className=''>
-          <code className=''>Typescript {response}</code>
+          <code className=''>Typescript {message}</code>
         </p>
       </main>
 
@@ -41,14 +41,14 @@ const Home: NextPage<HomeProps> = ({ response }) => {
   )
 }
 
-export default Home
+export default Other
 
 export async function getServerSideProps() {
-  const response = 'Message'
+  const message = 'Message'
 
   return {
     props: {
-      response
+      message
     }
   }
 }
