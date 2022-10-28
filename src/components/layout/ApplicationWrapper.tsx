@@ -25,8 +25,8 @@ export const ApplicationWrapper: FC<PropsWithChildren<TProps>> = ({
                 <Nav/>   
             </header>           
 
-            <main className="grow">{children}</main>
-            <footer className='flex p-6 h-20 text-white bg-slate-700 items-center justify-center'>
+            <main className="grow flex flex-col text-white">{children}</main>
+            <footer className='flex p-6 h-20 text-white bg-stone-800 items-center justify-center'>
                 <a
                     href="https://rootstack.com/en"
                     target="_blank"
