@@ -26,12 +26,11 @@ export const MovieList = () => {
     useEffect(() => {
         fetch('http://localhost:3000/movies')
         .then(res => res.json())
-        .then((data:IMovie[]) => setMovies(data))
+        .then((data:IMovie[]) => setMovies(data.slice(0, 20)))
         .catch((error) => console.error(error))
-    }, []);
-return(
+    }, [])
+    console.log(movies)
+return <div>MovieList</div>;
 
-    <div>MovieList</div>
-)
 }
 
