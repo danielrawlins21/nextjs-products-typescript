@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Movie from "./Movie/Movie";
 
 export interface IMovie{
   "Title": string,
@@ -21,16 +22,29 @@ export interface IMovie{
   "Poster": string
 }
 
-export const MovieList = () => {
-    const [movies, setMovies] = useState<IMovie[]>([]);
+const useMovies = () => {
+    const [movies, setMovies] = useState<IMovie[]>([])
+
     useEffect(() => {
-        fetch('http://localhost:3000/movies')
-        .then(res => res.json())
-        .then((data:IMovie[]) => setMovies(data.slice(0, 20)))
-        .catch((error) => console.error(error))
+        fetch(process.env.NEXT_PUBLIC_API_URL+'/movies')
+            .then((res) => res.json())
+            .then((data:IMovie[]) => setMovies(data.slice(0, 20)))
+            .catch((error) => console.error(error))
     }, [])
-    console.log(movies)
-return <div>MovieList</div>;
+    return movies
+}
+
+
+export const MovieList = () => {
+    const movies = useMovies()
+    //console.log(movies)
+return <div className="flex flex-col justify-center text-white items-center">
+    <ul className="w-full grid grid-cols-1 md:grid-cols-4 gap-5">
+        {movies.map((movie) =>(
+            <Movie key={movie.id} movie={movie}/>
+        ))}
+    </ul>
+</div>;
 
 }
 

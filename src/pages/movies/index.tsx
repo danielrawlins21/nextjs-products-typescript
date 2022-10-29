@@ -13,7 +13,7 @@ const Movies: NextPage<TProps> = () => {
     
       
       <ApplicationWrapper title="Movies" description='Movies of the rootlab movies website'>
-        <h1 className='text-4xl font-bold underline'>Movies | Rootstack</h1>
+        
       <MovieList/>
       </ApplicationWrapper>
 
